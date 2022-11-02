@@ -61,7 +61,7 @@ def pix():
 @app.route('/privacy', methods=['GET'])
 def privacy():
 	# Endpoint for Google Play Store
-	return "Nenhum dado é salvo."
+	return "Nenhum dado fornecido diretamente pelo o usuário é salvo. Entretanto, o aplicativo utiliza o CodePush para fazer certas atualizações sem passar pela Google Play Store, e esta biblioteca coleta alguns dados para fazer análises."
 
 @app.route('/hello', methods=['GET'])
 def hello():
