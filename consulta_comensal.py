@@ -99,7 +99,7 @@ def generate_pix(amount_credits, card_number, registration):
 
 	r = s.post(f"https://si3.ufc.br/public/jsp/restaurante_universitario/gera_gru_restaurante.jsf", data=body)
 
-	idSessao = re.findall(r'<iframe class="iframe-epag"(?:(?:\n|\t|.)*?) src="https://pagtesouro.tesouro.gov.br/#/pagamento\?idSessao=(.*?)&', r.text)[0]
+	idSessao = r.text.split('https://pagtesouro.tesouro.gov.br/#/pagamento?idSessao=')[1].split('&tema=')[0]
 
 	# Send idSessao to dados-pagamento
 	r = s.get(f"https://pagtesouro.tesouro.gov.br/api/pagamentos/dados-pagamento?idSessao={idSessao}")
